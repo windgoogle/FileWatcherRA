@@ -1,0 +1,10 @@
+com\tongweb\samples\filewatch\event\FileEvent.class
+com\tongweb\samples\filewatch\FileSystemWatcherActivationSpec.class
+com\tongweb\samples\filewatch\FileSystemWatcher.class
+com\tongweb\samples\filewatch\WatchingThread.class
+com\tongweb\samples\filewatch\event\FileEvent$Type.class
+com\tongweb\samples\filewatch\event\Modified.class
+com\tongweb\samples\filewatch\event\Created.class
+com\tongweb\samples\filewatch\event\Deleted.class
+com\tongweb\samples\filewatch\FileSystemWatcherResourceAdapter.class
+com\tongweb\samples\filewatch\WatchingThread$1.class
