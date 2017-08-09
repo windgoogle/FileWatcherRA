@@ -8,7 +8,7 @@
     <groupId>com.tongweb.samples</groupId>
     <artifactId>FileWatcherRA</artifactId>
     <version>1.0</version>
-    <packaging>rar</packaging>
+    <packaging>jar</packaging>
     <name>File Watcher Resource Adapter</name>
 
     <dependencies>
@@ -30,13 +30,11 @@
                     <target>1.7</target>
                 </configuration>
             </plugin>
-            <!--
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-jar-plugin</artifactId>
-                <configuration>
-                    <classifier>lib</classifier>
-                </configuration>
+
                 <executions>
                     <execution>
                         <id>jar-package</id>
@@ -46,7 +44,7 @@
                     </execution>
                 </executions>
             </plugin>
-            -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-rar-plugin</artifactId>

@@ -16,6 +16,7 @@
  */
 package com.tongweb.samples.filewatch;
 
+import javax.naming.InitialContext;
 import javax.resource.ResourceException;
 import javax.resource.spi.*;
 import javax.resource.spi.endpoint.MessageEndpointFactory;
@@ -64,9 +65,9 @@ public class FileSystemWatcherResourceAdapter implements ResourceAdapter {
 
     @Override
     public void endpointActivation(MessageEndpointFactory endpointFactory, ActivationSpec activationSpec) throws ResourceException {
-        
+        lookupEnv();
         out.println("----[RA] "+this.getClass().getSimpleName() + " resource adapater endpoint activated for " + endpointFactory.getEndpointClass());
-        
+        out.println("----[RA]  resource adapater endpoint activated with activation name : " + endpointFactory.getActivationName());
         FileSystemWatcherActivationSpec fsWatcherAS = (FileSystemWatcherActivationSpec) activationSpec;
 
         try {
@@ -84,7 +85,7 @@ public class FileSystemWatcherResourceAdapter implements ResourceAdapter {
 
     @Override
     public void endpointDeactivation(MessageEndpointFactory endpointFactory, ActivationSpec activationSpec) {
-        
+        lookupEnv();
         out.println("----[RA] "+this.getClass().getSimpleName() + " resource adapater endpoint deactivated for " + endpointFactory.getEndpointClass());
         
         for (WatchKey watchKey : listeners.keySet()) {
@@ -133,5 +134,16 @@ public class FileSystemWatcherResourceAdapter implements ResourceAdapter {
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    private void lookupEnv() {
+
+        try {
+            InitialContext ctx=new InitialContext();
+            String sqType =(String) ctx.lookup("java:comp/env/sql_type");
+            out.println("----[RA] lookup componet env: " +sqType);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
