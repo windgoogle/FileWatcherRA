@@ -141,7 +141,7 @@ public class FileSystemWatcherResourceAdapter implements ResourceAdapter {
         try {
             InitialContext ctx=new InitialContext();
             String sqType =(String) ctx.lookup("java:comp/env/sql_type");
-            out.println("----[RA] lookup componet env: " +sqType);
+            out.println("----[RA] lookup component env: " +sqType);
         }catch (Exception e){
             e.printStackTrace();
         }
